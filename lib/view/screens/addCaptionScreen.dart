@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spanky/constrain.dart';
 import 'package:spanky/controller/video_upload_controller.dart';
+import 'package:spanky/view/screens/display_screen.dart';
 import 'package:spanky/view/screens/widgets/text_input.dart';
 import 'dart:io';
 import 'package:get/get.dart';
@@ -78,7 +79,7 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
       );
 
       if (mounted) {
-        Get.back(); // or navigate to Homepage
+        Get.offAll(() => DisplayScreen()); // or navigate to Homepage
       }
     } catch (e) {
       Get.snackbar("Upload Failed", e.toString());
