@@ -67,10 +67,11 @@ class CommentController extends GetxController {
         ...comment.toJson(),
         'video_id': _postID,
       });
+      print('Calling RPC to increment comment count for video: $_postID');
 
-      await supabase.rpc('increment_comment_count', params: {
-        'video_id_input': _postID,
-      });
+await supabase.rpc('increment_comment_count', params: {
+  'video_id_input': _postID,
+});
 
       fetchComment();
     } catch (e) {
