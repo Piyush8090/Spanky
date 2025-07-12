@@ -6,11 +6,28 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+✨ Features
+🔐 Authentication
+  🔸 Email & Password login/signup
+  🔸 Google Sign-In (via Supabase OAuth)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🎥 Video Upload & Playback
+  📤 Upload videos with captions and song names
+  📱 View vertically scrollable video feed
+  📦 Videos compressed using video_compress
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+❤️ Social Interactions
+  👍 Like/unlike videos and comments
+  💬 Post comments with live updates
+  
+👤 User Profile
+👀 View own and other users' profiles
+🖊️ Edit name and profile photo
+📊 Show total likes and uploaded videos
+
+💬 Chat & Messaging (in progress or planned)
+📨 Chat with other users
+⏱️ Real-time messaging via Supabase
+
+🔍 Search & Explore
+🔎 Search users by name
