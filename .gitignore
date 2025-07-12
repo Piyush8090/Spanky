@@ -46,3 +46,6 @@ app.*.map.json
 
 # Hiding Secret Api key 
 lib/secrets.dart
+
+#Hide
+android/app/google-services.json
