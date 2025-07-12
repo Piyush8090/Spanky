@@ -7,6 +7,7 @@ import 'package:spanky/view/screens/splash_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:spanky/controller/auth_controller.dart';
 import 'package:spanky/constrain.dart';
+import 'secrets.dart';
 
 
 void main() async {
@@ -14,8 +15,8 @@ void main() async {
 
   // Initialize Supabase
   await Supabase.initialize(
-    url: 'https://uwtpuvrjylkklgwwlayp.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3dHB1dnJqeWxra2xnd3dsYXlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0NTQ3NTcsImV4cCI6MjA2NzAzMDc1N30.drzR9QyOhcdkbEuW8qV_ovR_R05KANikHa90NRxR0rI',
+    url: Secrets.supabaseUrl,
+    anonKey: Secrets.supabaseAnonKey,
     
   );
 
