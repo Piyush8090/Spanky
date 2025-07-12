@@ -61,6 +61,3 @@ This project is a feature-rich Flutter application inspired by Social media apps
 3. 🔑 Add your Supabase URL and anon key  
 4. ▶️ Run the app with `flutter run`
 
----
-
-Let me know if you want this saved as a `.md` file or pasted directly into GitHub.
