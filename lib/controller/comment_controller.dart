@@ -48,7 +48,9 @@ class CommentController extends GetxController {
           .eq('uid', user.id)
           .maybeSingle();
 
-      if (userData == null || userData['name'] == null || userData['profile_photo'] == null) {
+      if (userData == null ||
+          userData['name'] == null ||
+          userData['profile_photo'] == null) {
         Get.snackbar("Error", "User data incomplete or not found");
         return;
       }
@@ -67,14 +69,34 @@ class CommentController extends GetxController {
         ...comment.toJson(),
         'video_id': _postID,
       });
-      print('Calling RPC to increment comment count for video: $_postID');
+      final video = await supabase
+          .from('videos')
+          .select('comment_count')
+          .eq('id', _postID)
+          .maybeSingle();
 
-await supabase.rpc('increment_comment_count', params: {
-  'video_id_input': _postID,
-});
+      print('📦 Video fetched: $video');
+
+      if (video != null) {
+  final currentCount = (video['comment_count'] ?? 0) as int;
+
+
+  await supabase
+      .from('videos')
+      .update({'comment_count': currentCount + 1})
+      .eq('id', _postID);
+      
+}
+ else {
+        print(
+          'Could not fetch video or comment_count is null',
+        );
+      }
 
       fetchComment();
-    } catch (e) {
+    } catch (e, stack) {
+      print("Error occurred: $e");
+      print("Stack trace: $stack");
       Get.snackbar("Error", "Failed to post comment: $e");
     }
   }

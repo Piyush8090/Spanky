@@ -56,4 +56,5 @@ class Video {
       'profile_pic': profilePic,
     };
   }
+  
 }

@@ -181,8 +181,20 @@ class DisplayScreen extends StatelessWidget {
                               Get.to(
                                 () => CommentScreen(
                                   videoId: data.id,
-                                  onCommentAdded: () =>
-                                      videoController.fetchVideos(),
+                                  onCommentAdded: () {
+                                    // manually increment comment count in local list
+                                    final index = videoController.videoList
+                                        .indexWhere(
+                                          (video) => video.id == data.id,
+                                        );
+                                    if (index != -1) {
+                                      final video =
+                                          videoController.videoList[index];
+                                      video.commentCount += 1;
+                                      videoController.videoList[index] = video;
+                                      videoController.update();
+                                    }
+                                  },
                                 ),
                               );
                             },
@@ -204,7 +216,7 @@ class DisplayScreen extends StatelessWidget {
                           const SizedBox(height: 20),
                           InkWell(
                             onTap: () async {
-                              final url = data.videoUrl ;
+                              final url = data.videoUrl;
                               final shareText = url.isNotEmpty
                                   ? "Check out this awesome video : ${data.videoUrl}"
                                   : "Such a nice video..!";

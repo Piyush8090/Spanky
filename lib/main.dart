@@ -7,7 +7,7 @@ import 'package:spanky/view/screens/splash_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:spanky/controller/auth_controller.dart';
 import 'package:spanky/constrain.dart';
-import 'secrets.dart';
+import 'package:spanky/secrets.dart';
 
 
 void main() async {
